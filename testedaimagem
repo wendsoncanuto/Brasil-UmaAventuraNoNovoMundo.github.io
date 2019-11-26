@@ -1,0 +1,68 @@
+let map = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,0,1,0,0,0,3,3,3,3,1],
+  [1,0,0,0,0,0,2,0,0,3,3,3,3,3,1]
+];
+var x = 0;
+var y = 51;
+var velocidade = 0;
+var gravidade = 1.5;
+var xi = 400;
+var yi = 400;
+var agua=[];
+var tileSize=50;
+var chao = 552-tileSize;
+var pulando = false;
+var cont=0;
+var deley=5;
+var k=0;
+  function preload(){
+  agua[0]=loadImage('https://raw.githubusercontent.com/Tiberio-Gracco/Tiberio-Gracco.github.io/master/Imagens/agua0.png');
+agua[1]=loadImage('https://raw.githubusercontent.com/Tiberio-Gracco/Tiberio-Gracco.github.io/master/Imagens/agua1.png');
+  agua[2]=loadImage('https://raw.githubusercontent.com/Tiberio-Gracco/Tiberio-Gracco.github.io/master/Imagens/agua2.png');
+    agua[3]=loadImage('https://raw.githubusercontent.com/Tiberio-Gracco/Tiberio-Gracco.github.io/master/Imagens/agua3.png');
+    agua[4]=loadImage('https://raw.githubusercontent.com/Tiberio-Gracco/Tiberio-Gracco.github.io/master/Imagens/agua4.png');
+    
+  }
+
+function setup() {
+  createCanvas(2000, 1000);
+}
+
+function draw() {
+  background(820);
+  for (let i = 0; i < map.length; i++) {
+    for (let j = 0; j < map[i].length; j++) {
+      if (map[i][j] == 1) {//imagensda grama
+        
+        fill("yellow");
+        rect(j * tileSize, i * tileSize, tileSize, tileSize);
+      }
+      /*o 1 no mapa são as bordas do mapa o 2 são as arvores  */
+      if (map[i][j] == 2) {//imagem das arvores.
+      rectMode(CENTER);
+        ellipse(j * tileSize, i * tileSize, tileSize, tileSize);
+      }
+      if (map[i][j] == 3) {//imagem da agua.
+        for(x=0;x<5;x++){
+        imageMode(CENTER);
+        image(agua[k],j * tileSize, i * tileSize, tileSize, tileSize);
+        }
+      
+        
+      }       
+      }
+    }
+  cont++
+      if(cont==51){
+        k++
+      cont=0
+      }
+  else{
+     cont++
+     }
+  if(k>4){
+  k=0;
+  }
+  
+}
