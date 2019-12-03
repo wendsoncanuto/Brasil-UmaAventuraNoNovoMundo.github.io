@@ -1,0 +1,7 @@
+  var vx= [], vy= [];    //vetores de coordenadas para multiplos objetos
+ 
+for (i=0; i<total; i++) {
+ ellipse(x, y, raiojogador*2,raiojogador*2)          //um objeto
+ ellipse(vx[i], vy[i], raioinimigo*2,raioinimigo)     //vários objetos inimigos
+ vy[i]=vy[i]+1                    //movimento dos objetos inimigos
+}
